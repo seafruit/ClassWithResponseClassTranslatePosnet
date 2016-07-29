@@ -51,7 +51,12 @@ class Routing {
     }
 
     if (response.reset) {
-      new Routing().reset();
+      this.reset();
+      result+=`\n
+    1. Translate zip code to bar code
+    2. Translate bar code to zip code
+    3. Quit
+    Please input your choices(1~3)`;
     }
     if (response.newMapping) {
       this.mapping = response.newMapping;
@@ -61,12 +66,14 @@ class Routing {
 
   reset() {
     // let mapping =this.mapping;
+
     this.mapping = {
       '1': new InputDigitalCommand,
       '2': new InputBarcodeCommand,
       '3': new ExitCommand,
       'main': new MainCommand()
     }
+
   }
 }
 module.exports = Routing;

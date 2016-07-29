@@ -12,13 +12,13 @@ class TranslateDigitalCommand {
     let item={};
     if (textString.type) {
         item = {
-        text: 'the barcode is :' + textString.text,
+        text: 'the barcode is  ' + textString.text,
         next: false,
         reset: true
       }
     } else {
        item = {
-        text: 'Please give right input',
+        text: 'Please give right input\n',
         next: this.next,
         reset: false
       }

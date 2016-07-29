@@ -9,7 +9,8 @@ describe('Command-spec', function () {
   it('MainCommand',function(){
     let result = new MainCommand().execute();
     let expectItem ={
-      text:`1. Translate zip code to bar code
+      text:`\n
+    1. Translate zip code to bar code
     2. Translate bar code to zip code
     3. Quit
     Please input your choices(1~3)`,

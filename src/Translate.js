@@ -5,9 +5,14 @@ const TranslateResponse = require('./TranslateResponse');
 class Translator {
 
   checkDigitalFormat(digital) {
-    let hasHypken = digital.includes('-') && digital.indexOf('-') === digital.lastIndexOf('-');
+    // if(digital.length == 10){
+    //   if(digital.includes('-') && digital.indexOf('-') ===5&& digital.lastIndexOf('-')===5){
+    //
+    //   }
+    // }
+    let hasHypken = digital.includes('-') && digital.indexOf('-') ===5&& digital.lastIndexOf('-')===5;
     let isNumber = /^[0-9]*$/.test(digital.replace('-', ''));
-    if ((hasHypken && digital.length === 10 && isNumber) || (isNumber && (digital.length === 5 || digital.length === 9))) {
+    if ((digital.length === 10 && hasHypken && isNumber) || (isNumber && (digital.length === 5 || digital.length === 9))) {
       return {digital, type: true}
     }
     return {digital, type: false}
@@ -82,7 +87,7 @@ class Translator {
 
   checkBarcodeFormat(input) {
     let startAndEnd = _.endsWith(input, '|') && input.indexOf('|') === 0;
-    if (startAndEnd && input.length === 32 || input.length === 52) {
+    if (startAndEnd && (input.length === 32 || input.length === 52)) {
       let barcode = input.substring(1, input.length - 1);
       // let barcodeArray = barcodeIntoArrar(barcode);
       let barcodeArray = _.chunk(barcode, 5).map((item)=>item.join());
@@ -104,7 +109,7 @@ class Translator {
   tanslateBarcode(input) {
     let allItems = allItem();
     let isFormattedBarcode = this.checkBarcodeFormat(input);
-    console.log(isFormattedBarcode);
+    // console.log(isFormattedBarcode);
     if (isFormattedBarcode.type) {
       // debugger;
       let formatBarcode = this.formattedBarcode(input);

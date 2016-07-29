@@ -15,7 +15,7 @@ describe('Take out food', function () {
     let next = new InputBarcodeCommand();
     let result = new TranslateBarcodeCommand(next).execute(input);
     let expetItem = {
-      text: 'the zipcode is :'+'123455',
+      text: 'the zipcode is  '+'123455',
       reset:true,
       next:false,
       newMapping:false
@@ -30,7 +30,7 @@ describe('Take out food', function () {
     let next = new InputBarcodeCommand();
     let result = new TranslateBarcodeCommand(next).execute(input);
     let expetItem = {
-      text: 'Please give right input',
+      text: 'Please give right input\n',
       next,
       reset:false,
       newMapping:false

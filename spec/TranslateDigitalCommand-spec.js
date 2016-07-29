@@ -15,7 +15,7 @@ describe('Take out food', function () {
     let nextGo = new InputDigitalCommand();
     let result =new TranslateDigitalCommand(nextGo).execute(input);
     let expetItem ={
-      text:'the barcode is :'+'|:::||::|:|::||::|::|:|:|::|:|:|',
+      text:'the barcode is  '+'|:::||::|:|::||::|::|:|:|::|:|:|',
       next:false,
       reset:true,
       newMapping:false
@@ -30,7 +30,7 @@ describe('Take out food', function () {
     let input = '1234555';
     let result =new TranslateDigitalCommand(nextGo).execute(input);
     let expetItem ={
-      text:'Please give right input',
+      text:'Please give right input\n',
       next:nextGo,
       reset: false,
       newMapping:false
