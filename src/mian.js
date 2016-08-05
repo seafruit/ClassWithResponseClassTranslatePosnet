@@ -25,5 +25,5 @@
 
 
  function log(result){
- expect(result).to.equal("")
+ expect(result).to.equal("");
  }

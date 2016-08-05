@@ -1,9 +1,6 @@
 /**
  * Created by yoyo on 16-7-26.
  */
-
-// let Commands = require('../src/command');
-// let allCommand = new Commands();
 let TranslateBarcodeCommand = require('../src/TranlateBarcodeCommand');
 let InputBarcodeCommand = require('../src/InputBarcodeCommand');
 
@@ -27,7 +24,7 @@ describe('Take out food', function () {
   });
   it('transWrongBarcode',function(){
     let input = '|:::|:|::||::|::|:|:|::|:|:|';
-    let next = new InputBarcodeCommand();
+    let next =new InputBarcodeCommand();
     let result = new TranslateBarcodeCommand(next).execute(input);
     let expetItem = {
       text: 'Please give right input\n',

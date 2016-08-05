@@ -41,7 +41,12 @@ describe('postnet', function () {
     routing.reset();
     routing.route("1");
     let response = routing.route("95713");
-    expect(response).toEqual("the barcode is  ||:|:::|:|:|:::|:::||::||::|:|:|");
+    expect(response).toEqual("the barcode is  ||:|:::|:|:|:::|:::||::||::|:|:|" +
+      `\n
+    1. Translate zip code to bar code
+    2. Translate bar code to zip code
+    3. Quit
+    Please input your choices(1~3)`);
   });
   it('translate wrong', function () {
     routing.reset();
@@ -54,7 +59,12 @@ describe('postnet', function () {
     routing.reset();
     routing.route("2");
     let response = routing.route("||:|:::|:|:|:::|:::||::||::|:|:|");
-    expect(response).toEqual("the zipcode is  957135");
+    expect(response).toEqual("the zipcode is  957135" +
+      `\n
+    1. Translate zip code to bar code
+    2. Translate bar code to zip code
+    3. Quit
+    Please input your choices(1~3)`);
   });
   it('translate wrong', function () {
     routing.reset();

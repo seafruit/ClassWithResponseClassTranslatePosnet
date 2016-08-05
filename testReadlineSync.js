@@ -1,39 +1,34 @@
-var readlineSync = require('readline-sync');
-let Route = require('./src/Route');
+// var readlineSync = require('readline-sync');
+// let Route = require('./src/Route');
+// //
+// //
+// // let result = route.route("main");
+// let input;
+// let route = new Route();
+// let result = new Route().route("main");
+// console.log(result);
+// let that, resultText;
+// do {
 //
-//
-// let result = route.route("main");
-//
-let input;
-let route = new Route();
-let result = new Route().route("main");
-console.log(result);
-let that,resultText;
-do{
+//   input = readlineSync.question();
+//   resultText = route.route(input);
+//   console.log(resultText);
+// } while (resultText !== 'byebye');
 
-  input=readlineSync.question();
-  resultText = route.route(input);
+const request = require('request');
+let readlineSync = require('readline-sync');
 
-  console.log(resultText);
-}while(resultText!=='byebye');
+console.log('Welcome!\n');
 
+let code = readlineSync.question('请输入code:');
+const option = {
+  url: "http://localhost:3000/code",
+  method: "POST",
+  json: true,
+  body: {'code': code}
+};
 
-// while(true){
-//
-// }
-//
-// function doOneRound(read, log){
-//   let input = read();
-//   result = route.route(input);
-//   log(result);
-// }
-//
-// function read(){
-//   return "1"
-// }
-//
-//
-// function log(result){
-//   expect(result).to.equal("")
-// }
+request(option, function (error, response, body) {
+  console.log(body);
+});
 

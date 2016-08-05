@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #button1 {
+            width: 50px;
+            height: 30px;
+            cursor: pointer;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+<input type="text" name="zipcode" id="zipcode" >
+<!--<input type="submit" value ="translate" id="button1">-->
+<button type="button" value="translate" id="button1"></button>
+<div id="demoText"></div>
+<script>
+    $(document).ready(function () {
+//        $('#button1').click(function () {
+//            $.ajax({
+//                url: "http://localhost:3000/zipcode",
+//                type: 'POST',
+//                async: true,
+//                data: "zipcode=" + $('#zipcode').val(),
+//                success: function (result) {
+//                    $('#demoText').html(result);
+//                },
+//                error: function (xhr) {
+//                    alert('Sorry, there was a problem!'+xhr.status);
+//                }
+//            })
+//        })
+
+        $('#button1').click(function () {
+            $.ajax({
+                url: "http://localhost:3000/zipcode",
+                type: 'GET',
+                async: true,
+                data: "zipcode=" + $('#zipcode').val(),
+                success: function (result) {
+                    $('#demoText').html(result);
+                },
+                error: function (xhr) {
+                    alert('Sorry, there was a problem!'+xhr.status);
+                }
+            })
+        })
+
+    });
+
+</script>
+</body>
+
+</html>
